@@ -16,7 +16,7 @@ type widgetService struct {
 	jwt  m.JWTService
 }
 
-func NewPosService(Repo r.DomainRepository, jwtS m.JWTService) WidgetService {
+func NewChatWidgetService(Repo r.DomainRepository, jwtS m.JWTService) WidgetService {
 	return &widgetService{
 		Repo: Repo,
 		jwt:  jwtS,

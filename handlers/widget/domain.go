@@ -14,7 +14,7 @@ type domainHandler struct {
 	serviceWidget s.WidgetService
 }
 
-func NewWidgetHandler(service s.WidgetService) DomainHandler {
+func NewChatWidgetHandler(service s.WidgetService) DomainHandler {
 	return &domainHandler{
 		serviceWidget: service,
 	}
