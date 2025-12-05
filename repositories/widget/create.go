@@ -1,6 +1,8 @@
 package widget
 
 import (
+	"fmt"
+	"strings"
 	"time"
 
 	"github.com/srv-cashpay/chat/dto"
@@ -18,6 +20,9 @@ func (r *widgetRepository) Create(req dto.WidgetRequest) (dto.WidgetResponse, er
 	}
 
 	if err := r.DB.Create(&chat).Error; err != nil {
+		if strings.Contains(err.Error(), "duplicate") || strings.Contains(err.Error(), "UNIQUE") {
+			return dto.WidgetResponse{}, fmt.Errorf("the schedule has been made", chat.Email)
+		}
 		return dto.WidgetResponse{}, err
 	}
 

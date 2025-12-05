@@ -9,7 +9,7 @@ import (
 type ChatWidget struct {
 	ID           string         `gorm:"primary_key,omitempty" json:"id"`
 	FullName     string         `gorm:"full_name" json:"full_name"`
-	Email        string         `gorm:"email" json:"email"`
+	Email        string         `gorm:"email;uniqueIndex" json:"email"`
 	Whatsapp     string         `gorm:"whatsapp" json:"whatsapp"`
 	BusinessName string         `gorm:"business_name" json:"business_name"`
 	Description  string         `gorm:"description" json:"description"`
