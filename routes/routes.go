@@ -20,7 +20,7 @@ var (
 func New() *echo.Echo {
 	e := echo.New()
 
-	widget := e.Group("/api/widget", middlewares.AuthorizeJWT(JWT))
+	widget := e.Group("/api/widget")
 	{
 		widget.POST("/create/chat", widgetH.Create)
 	}
